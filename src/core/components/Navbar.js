@@ -10,7 +10,6 @@ const Navbar = () => {
         <div className='nav-menu'>
             <Link href='/login' className='nav-link white'>Login</Link>
             <Link href='/pricing' className='nav-link black'>Pricing</Link>
-
         </div>
     </nav>
 
