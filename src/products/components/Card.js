@@ -7,7 +7,7 @@ const ProductCard = ({product}) => {
 
   return (
     <article className='product-card'>
-        <Link href={`/products/$product.slug}`}>
+        <Link href={`/products/${product.slug}`}>
             <img src={`/assets/${product.slug}.png`} alt={product.name}/>
         </Link>
         <header>
@@ -15,7 +15,7 @@ const ProductCard = ({product}) => {
 
         </header>
         <footer>
-        <Link href={`/products/$product.slug}`} className='more'>
+        <Link href={`/products/${product.slug}`} className='more'>
             See more
         </Link>
             <div>
