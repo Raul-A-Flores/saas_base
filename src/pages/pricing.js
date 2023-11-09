@@ -5,7 +5,6 @@ import { stripe } from 'src/pricing/utils/stripe'
 import Plans from 'src/pricing/components/Plans'
 
 export async function getStaticProps(){
-  
 
     const { data: prices } = await stripe.prices.list()
     const plans = []
@@ -28,7 +27,8 @@ export async function getStaticProps(){
         }
     }
 
-}
+};
+
 
 
 export const PricingPage = ({plans}) => {
