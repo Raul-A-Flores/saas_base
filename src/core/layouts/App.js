@@ -14,7 +14,7 @@ export default function AppLayout({children}) {
         <>
         <Meta />
         { hideNavebar ? null : <Navbar />}
- 
+
         {children}
         </>
     )
