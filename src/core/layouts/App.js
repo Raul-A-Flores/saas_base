@@ -1,9 +1,12 @@
+
+
+
 import { useRouter } from "next/router"
 import Meta from "../components/Meta"
 import Navbar from "../components/Navbar"
 
 
-const hiddenNavbarPages =['/success']
+const hiddenNavbarPages = ['/success', '/login' ]
 
 export default function AppLayout({children}) {
 
@@ -12,10 +15,12 @@ export default function AppLayout({children}) {
 
     return(
         <>
-        <Meta />
-        { hideNavebar ? null : <Navbar />}
-
-        {children}
+            <Meta />
+            { hideNavebar ? null : <Navbar />}
+            {children}
         </>
     )
 }
+
+
+
