@@ -18,7 +18,6 @@ export async function getStaticProps() {
 
 const index = ({products}) => {
 
-   // console.log(products)
 
     return (
     <>

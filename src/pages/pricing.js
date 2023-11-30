@@ -32,7 +32,6 @@ export async function getStaticProps(){
 
 
 export const PricingPage = ({plans}) => {
-    console.log(plans)
   return (
     <div className='grid-halves h-screen-navbar'>
         <Plans  plans={plans}/>

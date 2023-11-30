@@ -38,7 +38,7 @@ export default async function handler(req, res) {
                 break;
 
             case 'customer.subscription.deleted':
-                await updateSubscription(event)
+                await deleteSubscription(event)
                 break
 
         }
@@ -66,7 +66,10 @@ export default async function handler(req, res) {
             subscription_status,
             price
         }
-        await supabase.from('profile').update(updatedSubscription).eq('stripe_customer_id', stripe_customer_id)
+        await supabase
+        .from('profile')
+        .update(updatedSubscription)
+        .eq('stripe_customer_id', stripe_customer_id)
     } else {
         const customer = await stripe.customers.retrieve(
             stripe_customer_id
@@ -88,4 +91,20 @@ export default async function handler(req, res) {
             user_metadata: newProfile,
         })
     }
+}
+
+async function deleteSubscription(event){
+
+    const subscription = event.data.object;
+    const stripe_customer_id  = subscription.customer;
+    const subscription_status = subscription.status;
+    const deletedSubscription = {
+        subscription_status,
+        price: null
+    }
+    await supabase
+    .from('profile')
+    .update(deletedSubscription)
+    .eq('stripe_customer_id', stripe_customer_id)
+
 }
